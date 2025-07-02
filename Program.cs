@@ -1,14 +1,15 @@
 ﻿using DevoRobot.Application;
 using DevoRobot.Application.Interfaces;
 using DevoRobot.Infrastructure;
+using DevoRobot.Infrastructure.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((_, services) =>
+    .ConfigureServices(services =>
     {
         services.AddScoped<IRobotApp, RobotApp>();
-        services.AddScoped<RobotService>();
+        services.AddScoped<IRobotService, RobotService>();
     })
     .Build();
 
