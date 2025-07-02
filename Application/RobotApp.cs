@@ -11,7 +11,7 @@ namespace DevoRobot.Application
         {
             try
             {
-                Console.WriteLine("Enter room size (width depth):");
+                Console.WriteLine("Enter a value between 1-9 for room size width and depth (x y):");
                 var roomSizeInput = Console.ReadLine();
                 (var width, var depth) = InputParser.ParseRoomSize(roomSizeInput);
 
