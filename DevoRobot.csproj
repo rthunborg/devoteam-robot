@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,18 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Application\**" />
-    <Compile Remove="Infrastructure\**" />
-    <Compile Remove="Models\**" />
-    <Compile Remove="Utilities\**" />
-    <EmbeddedResource Remove="Application\**" />
-    <EmbeddedResource Remove="Infrastructure\**" />
-    <EmbeddedResource Remove="Models\**" />
-    <EmbeddedResource Remove="Utilities\**" />
-    <None Remove="Application\**" />
-    <None Remove="Infrastructure\**" />
-    <None Remove="Models\**" />
-    <None Remove="Utilities\**" />
+    <Compile Remove="DevoRobotTests\**" />
+    <EmbeddedResource Remove="DevoRobotTests\**" />
+    <None Remove="DevoRobotTests\**" />
   </ItemGroup>
 
   <ItemGroup>
