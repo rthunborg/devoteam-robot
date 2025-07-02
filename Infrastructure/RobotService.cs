@@ -1,15 +1,22 @@
-﻿using DevoRobot.Models;
+﻿using DevoRobot.Infrastructure.Interfaces;
+using DevoRobot.Models;
+
 
 namespace DevoRobot.Infrastructure
 {
-    public class RobotService(Robot robot)
+    public class RobotService : IRobotService
     {
-        private readonly Robot _robot = robot ?? throw new ArgumentNullException(nameof(robot));
+        private Robot? _robot;
+
+        public void SetRobot(Robot robot)
+        {
+            _robot = robot;
+        }
 
         public void ProcessCommands(string? commands)
         {
             if (string.IsNullOrEmpty(commands))
-                return;
+                throw new InvalidOperationException("No commands given.");
 
             foreach (char command in commands)
             {
@@ -19,6 +26,9 @@ namespace DevoRobot.Infrastructure
 
         private void ProcessCommand(char command)
         {
+            if (_robot is null)
+                throw new InvalidOperationException("Robot not set. Call SetRobot() before using this service.");
+
             switch (command)
             {
                 case 'L':

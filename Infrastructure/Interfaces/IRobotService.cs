@@ -1,7 +1,10 @@
-﻿namespace DevoRobot.Infrastructure.Interfaces
+﻿using DevoRobot.Models;
+
+namespace DevoRobot.Infrastructure.Interfaces
 {
     public interface IRobotService
     {
-        void ProcessCommands(string commands);
+        void SetRobot(Robot robot);
+        void ProcessCommands(string? commands);
     }
 }

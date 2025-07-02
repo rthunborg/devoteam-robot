@@ -79,8 +79,11 @@ namespace DevoRobotTests
         {
             var (width, depth) = InputParser.ParseRoomSize(roomSize);
             var (x, y, direction) = InputParser.ParseRobotPosition(position);
+
             var robot = new Robot(x, y, direction, width, depth);
-            var service = new RobotService(robot);
+            var service = new RobotService();
+            service.SetRobot(robot);
+
             return (service, robot);
         }
     }
