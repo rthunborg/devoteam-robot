@@ -90,7 +90,7 @@ namespace DevoRobot
 
         private void ValidatePosition()
         {
-            if (X < 0 || X >= _roomWidth || Y < 0 || Y >= _roomDepth)
+            if (X < 0 || X > _roomWidth || Y < 0 || Y > _roomDepth)
             {
                 throw new ArgumentOutOfRangeException($"Robot is outside of room boundaries. Position: ({X}, {Y})");
             }
