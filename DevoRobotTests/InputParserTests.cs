@@ -1,4 +1,5 @@
-﻿using DevoRobot.Utilities;
+﻿using DevoRobot.Models;
+using DevoRobot.Utilities;
 using Xunit;
 
 namespace DevoRobotTests
