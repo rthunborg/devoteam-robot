@@ -34,10 +34,7 @@ namespace DevoRobot.Application
                 robotService.ProcessCommands(commandsInput);
                 Console.WriteLine($"Report: {robot.ReportLocation()}");
             }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
