@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application\**" />
+    <Compile Remove="Infrastructure\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Utilities\**" />
+    <EmbeddedResource Remove="Application\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <None Remove="Application\**" />
+    <None Remove="Infrastructure\**" />
+    <None Remove="Models\**" />
+    <None Remove="Utilities\**" />
+  </ItemGroup>
+
+</Project>
