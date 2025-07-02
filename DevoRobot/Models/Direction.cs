@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevoRobot
+namespace DevoRobot.Models
 {
-    internal class Robot
+    public enum Direction
     {
+        N,
+        E,
+        S,
+        W
     }
 }
