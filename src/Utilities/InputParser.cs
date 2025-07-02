@@ -1,16 +1,15 @@
 ﻿using DevoRobot.Models;
-using System;
 
-namespace DevoRobot
+namespace DevoRobot.Utilities
 {
     public static class InputParser
     {
-        public static (int width, int depth) ParseRoomSize(string input)
+        public static (int width, int depth) ParseRoomSize(string? input)
         {
             if (string.IsNullOrEmpty(input))
                 throw new ArgumentException("Room size input cannot be null or empty.");
 
-            string[] parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = input.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
             if (parts.Length != 2)
                 throw new FormatException("Room size must consist of two numbers separated by a space.");
@@ -24,12 +23,12 @@ namespace DevoRobot
             return (width, depth);
         }
 
-        public static (int x, int y, Direction direction) ParseRobotPosition(string input)
+        public static (int x, int y, Direction direction) ParseRobotPosition(string? input)
         {
             if (string.IsNullOrEmpty(input))
                 throw new ArgumentException("Robot position input cannot be null or empty.");
 
-            string[] parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = input.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
             if (parts.Length != 3)
                 throw new FormatException("Robot position must consist of two numbers and a direction letter separated by spaces.");
@@ -41,6 +40,14 @@ namespace DevoRobot
                 throw new FormatException("Robot direction must be one of: N, E, S, W.");
 
             return (x, y, direction);
+        }
+
+        public static bool ValidateCommands(string? commands)
+        {
+            if (string.IsNullOrEmpty(commands))
+                return false;
+
+            return commands.All(x => x == 'L' || x == 'R' || x == 'F');
         }
     }
 }

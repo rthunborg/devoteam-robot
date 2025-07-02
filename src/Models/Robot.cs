@@ -1,7 +1,4 @@
-﻿using DevoRobot.Models;
-using System;
-
-namespace DevoRobot
+﻿namespace DevoRobot.Models
 {
     public class Robot
     {
@@ -24,45 +21,26 @@ namespace DevoRobot
 
         public void TurnLeft()
         {
-            switch (Facing)
+            Facing = Facing switch
             {
-                case Direction.N:
-                    Facing = Direction.W;
-                    break;
-                case Direction.E:
-                    Facing = Direction.N;
-                    break;
-                case Direction.S:
-                    Facing = Direction.E;
-                    break;
-                case Direction.W:
-                    Facing = Direction.S;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                Direction.N => Direction.W,
+                Direction.E => Direction.N,
+                Direction.S => Direction.E,
+                Direction.W => Direction.S,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
 
         public void TurnRight()
         {
-            switch (Facing)
+            Facing = Facing switch
             {
-                case Direction.N:
-                    Facing = Direction.E;
-                    break;
-                case Direction.E:
-                    Facing = Direction.S;
-                    break;
-                case Direction.S:
-                    Facing = Direction.W;
-                    break;
-                case Direction.W:
-                    Facing = Direction.N;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
+                Direction.N => Direction.E,
+                Direction.E => Direction.S,
+                Direction.S => Direction.W,
+                Direction.W => Direction.N,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
 
         public void MoveForward()
@@ -86,6 +64,11 @@ namespace DevoRobot
             }
 
             ValidatePosition();
+        }
+
+        public string ReportLocation()
+        {
+            return $"{X} {Y} {Facing}";
         }
 
         private void ValidatePosition()
